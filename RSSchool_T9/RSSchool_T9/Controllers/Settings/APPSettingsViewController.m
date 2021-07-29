@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:UIColor.yellowColor];
     // Do any additional setup after loading the view.
 }
 

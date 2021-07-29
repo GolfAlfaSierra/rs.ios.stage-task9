@@ -15,60 +15,44 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        setupSelf()
+        
+        
+        
+    }
+    
+    func setupSelf(){
         view.backgroundColor = .white
+        setupTabBar()
+    }
+    
+    func setupTabBar() {
+        tabBar.unselectedItemTintColor = .appGray
+        tabBar.tintColor = .red
+        setupItems()
         
-        addItemsVC()
-        
-        // Do any additional setup after loading the view.
     }
     
     
-    func addItemsVC() {
+    func setupItems() {
         
         
-//        let item = UITabBarItem()
-//        item.title = "Items"
-//        let img = UIImage(systemName: "square.grid.2x2",
-//                          withConfiguration: UIImage.SymbolConfiguration(pointSize: 21,
-//                                                                         weight: .medium,
-//                                                                         scale: .medium))?.withRenderingMode(.alwaysOriginal).withTintColor(.red)
-//        item.image = img
-//        let titleFont = UIFont.systemFont(ofSize: 10, weight: .medium)
-//        item.setTitleTextAttributes([
-//            .font: titleFont,
-//            NSAttributedString.Key.foregroundColor : UIColor.red
-//        ], for: .normal)
-//
-//
-//
-//        let item2 = UITabBarItem()
-//        item.title = "Items"
-//        let img2 = UIImage(systemName: "gear",
-//                          withConfiguration: UIImage.SymbolConfiguration(pointSize: 21,
-//                                                                         weight: .medium,
-//                                                                         scale: .medium))?.withRenderingMode(.alwaysOriginal).withTintColor(.red)
-//        item.image = img2
-//        item.setTitleTextAttributes([
-//            .font: titleFont,
-//            NSAttributedString.Key.foregroundColor : UIColor.red
-//        ], for: .normal)
-//
-//        item2.badgeColor = .black
-//
-//
-//
-//
-//
-//        let itemsVC = ItemsViewController()
-//        itemsVC.tabBarItem = item
-//
-//        viewControllers = [itemsVC]
-//
-//
-//        self.tabBar.backgroundColor = .orange
-//
+        let item = UITabBarItem()
+        item.title = "Items"
+        item.image = UIImage(systemName: "square.grid.2x2")
+        
+        let item2 = UITabBarItem()
+        item2.title = "Settings"
+        item2.image = UIImage(systemName: "gear")
         
         
-        //        self.addChild(ItemsViewController())
+        let itemsVC = ItemsViewController()
+        itemsVC.tabBarItem = item
+        
+        let settingsVC = APPSettingsViewController()
+        settingsVC.tabBarItem = item2
+        
+        viewControllers = [itemsVC, settingsVC]
     }
 }
