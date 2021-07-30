@@ -3,17 +3,17 @@
 // Project: RSSchool_T9
 // 
 // Author: John Kent
-// On: 28.07.2021
+// On: 30.07.2021
 // 
 // Copyright © 2021 RSSchool. All rights reserved.
 
-#import "APPColorViewController.h"
+#import "APPSettingsNavigationViewController.h"
 
-@interface APPColorViewController ()
+@interface APPSettingsNavigationViewController ()
 
 @end
 
-@implementation APPColorViewController
+@implementation APPSettingsNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

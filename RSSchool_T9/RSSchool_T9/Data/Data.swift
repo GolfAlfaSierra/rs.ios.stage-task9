@@ -62,3 +62,18 @@ struct Gallery {
     let images: [UIImage]
     let type: String = String(describing: Gallery.self)
 }
+
+//func ba() {
+//    for item in FillingData.data {
+//        switch item {
+//        case let .gallery(g):
+//            print(g)
+//        case let .story(s):
+//            print(s)
+//
+//
+//        }
+//    }
+//
+//    
+//}

@@ -14,10 +14,14 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .cyan
+        
         // Do any additional setup after loading the view.
     }
     
+    
+    func setupSelf() {
+        view.backgroundColor = .white
+    }
 
     /*
     // MARK: - Navigation

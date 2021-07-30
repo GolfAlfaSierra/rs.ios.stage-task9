@@ -3,7 +3,7 @@
 // Project: RSSchool_T9
 // 
 // Author: John Kent
-// On: 28.07.2021
+// On: 30.07.2021
 // 
 // Copyright © 2021 RSSchool. All rights reserved.
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface APPColorViewController : UIViewController
+@interface APPColorPickViewController : UITableViewController
 
 @end
 
