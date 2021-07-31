@@ -8,6 +8,7 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import "APPTableCellOne.h"
+#import "RSSchool_T9-Swift.h"
 
 @interface APPTableCellOne ()
 
@@ -29,9 +30,8 @@
         
         [self.contentView addSubview:self.cellLabel];
         [self.contentView addSubview:self.cellSwitch];
-        
+        [self setBackgroundColor:UIColor.cellColor];
         [self.cellLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
         
         
         [NSLayoutConstraint activateConstraints:@[

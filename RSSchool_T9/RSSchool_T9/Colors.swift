@@ -10,6 +10,7 @@
 import UIKit
 
 extension UIColor {
-    static let appGray = UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 0.6)
+    @objc static let appGray = UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 0.6)
+    @objc static let cellColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
     
 }

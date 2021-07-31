@@ -7,6 +7,7 @@
 // 
 // Copyright © 2021 RSSchool. All rights reserved.
 
+
 #import "APPSettingsTableViewController.h"
 #import "APPSettingsView.h"
 
@@ -89,7 +90,7 @@
     [self configureCells];
     
     
-    id result = nil;
+    id result = self.strokeCell;
     
     switch (indexPath.row) {
         case 0:

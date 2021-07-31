@@ -8,6 +8,7 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import "APPTableCellTwo.h"
+#import "RSSchool_T9-Swift.h"
 
 @implementation APPTableCellTwo
 
@@ -18,7 +19,7 @@
     
     
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    [self setBackgroundColor:UIColor.cellColor];
     
     return self;
 }
