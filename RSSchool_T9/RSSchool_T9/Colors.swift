@@ -11,4 +11,5 @@ import UIKit
 
 extension UIColor {
     static let appGray = UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 0.6)
+    
 }

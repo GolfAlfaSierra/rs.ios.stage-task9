@@ -50,7 +50,7 @@ class MainViewController: UITabBarController {
         let itemsVC = ItemsViewController()
         itemsVC.tabBarItem = item
         
-        let settingsVC = APPSettingsViewController()
+        let settingsVC = APPSettingsNavigationViewController()
         settingsVC.tabBarItem = item2
         
         viewControllers = [itemsVC, settingsVC]

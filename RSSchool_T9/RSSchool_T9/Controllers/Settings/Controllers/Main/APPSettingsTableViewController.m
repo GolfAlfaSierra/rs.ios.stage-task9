@@ -8,87 +8,113 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import "APPSettingsTableViewController.h"
+#import "APPSettingsView.h"
+
+#import "APPColorPickViewController.h"
+
+
+#import "APPTableCellOne.h"
+#import "APPTableCellTwo.h"
 
 @interface APPSettingsTableViewController ()
+
+@property (nonnull, nonatomic) APPSettingsView *tableView;
+@property (nonnull, nonatomic) APPTableCellOne *strokeCell;
+@property (nonnull, nonatomic) APPTableCellTwo *colorPickCell;
 
 @end
 
 @implementation APPSettingsTableViewController
 
+- (void)makeConstraints {
+    [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [NSLayoutConstraint activateConstraints:@[
+        [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+        [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+        [self.tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        
+    ]];
+}
+
+- (void)configureTableView {
+    self.tableView = [[APPSettingsView alloc] initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
+    [self.tableView setScrollEnabled:NO];
+    
+    
+}
+
+-(void)configureCells{
+    self.strokeCell.cellLabel.text = @"Draw stories";
+    
+    self.colorPickCell.textLabel.text = @"Stroke color";
+    self.colorPickCell.detailTextLabel.text = @"#999999";
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Settings";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self configureTableView];
+    
+    
+    [self.view addSubview:self.tableView];
+    [self makeConstraints];
+    
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 52;
 }
 
-/*
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    self.strokeCell = [[APPTableCellOne alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    self.colorPickCell = [[APPTableCellTwo alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    [self configureCells];
     
-    return cell;
+    
+    id result = nil;
+    
+    switch (indexPath.row) {
+        case 0:
+            result = self.strokeCell;
+            break;
+        case 1:
+            result = self.colorPickCell;
+            break;
+    }
+    
+    return result;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    const int kColorPickId = 1;
+    
+    APPColorPickViewController *vc = [[APPColorPickViewController alloc] init];
+    
+    
+    if (indexPath.row == kColorPickId) {
+        
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

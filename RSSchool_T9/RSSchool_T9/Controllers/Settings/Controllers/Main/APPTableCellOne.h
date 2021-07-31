@@ -8,14 +8,11 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import <UIKit/UIKit.h>
-#import "APPTableCellOne.h"
-#import "APPTableCellTwo.h"
-
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface APPSettingsView : UITableView
-
+@interface APPTableCellOne : UITableViewCell
+@property (nonnull,nonatomic) UILabel *cellLabel;
 @end
 
 NS_ASSUME_NONNULL_END

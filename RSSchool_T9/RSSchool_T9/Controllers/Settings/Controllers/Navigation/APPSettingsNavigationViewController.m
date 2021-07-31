@@ -8,15 +8,23 @@
 // Copyright © 2021 RSSchool. All rights reserved.
 
 #import "APPSettingsNavigationViewController.h"
+#import "APPSettingsTableViewController.h"
 
 @interface APPSettingsNavigationViewController ()
-
+@property (nonnull,nonatomic) APPSettingsTableViewController *settingsTable;
 @end
 
 @implementation APPSettingsNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.settingsTable = [[APPSettingsTableViewController alloc] init];
+    
+    self.viewControllers = @[self.settingsTable];
+    
+//    self.navigationBar.backItem = [[UIBarButtonItem alloc] init];
+    
     // Do any additional setup after loading the view.
 }
 
