@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface APPTableCellOne : UITableViewCell
 @property (nonnull,nonatomic) UILabel *cellLabel;
+@property (nonnull,nonatomic) UISwitch *cellSwitch;
 @end
 
 NS_ASSUME_NONNULL_END

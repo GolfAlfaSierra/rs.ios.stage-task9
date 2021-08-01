@@ -52,6 +52,7 @@
 
 -(void)configureCells{
     self.strokeCell.cellLabel.text = @"Draw stories";
+    [self.strokeCell.cellSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
     
     int kDefaultColorID = 6;
     
@@ -127,6 +128,13 @@
         
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+-(void)switchChanged:(UISwitch*)sender {
+    BOOL state = [sender isOn];
+    NSString *rez = state == YES ? @"YES" : @"NO";
+    NSLog(rez);
+
 }
 
 - (void)didSelectColor:(APPTableViewCell *)cell indexPath:(NSIndexPath *)indexPath color:(UIColor *)color{

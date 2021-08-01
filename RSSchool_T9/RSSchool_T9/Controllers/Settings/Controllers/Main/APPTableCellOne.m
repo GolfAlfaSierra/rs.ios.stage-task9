@@ -12,7 +12,7 @@
 
 @interface APPTableCellOne ()
 
-@property (nonnull,nonatomic) UISwitch *cellSwitch;
+
 
 @end
 
@@ -32,6 +32,7 @@
         [self.contentView addSubview:self.cellSwitch];
         [self setBackgroundColor:UIColor.cellColor];
         [self.cellLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         
         [NSLayoutConstraint activateConstraints:@[
@@ -58,6 +59,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
