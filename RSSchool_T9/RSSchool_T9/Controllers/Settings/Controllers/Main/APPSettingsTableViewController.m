@@ -13,15 +13,18 @@
 
 #import "APPColorPickViewController.h"
 
+#import "APPColorPickViewDelegate.h"
 
 #import "APPTableCellOne.h"
 #import "APPTableCellTwo.h"
+#import "APPColors.h"
 
-@interface APPSettingsTableViewController ()
+@interface APPSettingsTableViewController () <APPColorPickViewDelegate>
 
 @property (nonnull, nonatomic) APPSettingsView *tableView;
 @property (nonnull, nonatomic) APPTableCellOne *strokeCell;
 @property (nonnull, nonatomic) APPTableCellTwo *colorPickCell;
+@property (nonatomic) NSNumber *selectedColorID;
 
 @end
 
@@ -50,14 +53,22 @@
 -(void)configureCells{
     self.strokeCell.cellLabel.text = @"Draw stories";
     
+    int kDefaultColorID = 6;
+    
+    NSString *colorCode = APPColors.getColorsString[kDefaultColorID];
+    UIColor *txtColor = APPColors.getColors[kDefaultColorID];
+    
     self.colorPickCell.textLabel.text = @"Stroke color";
-    self.colorPickCell.detailTextLabel.text = @"#999999";
+    self.colorPickCell.detailTextLabel.text = colorCode;
+    self.colorPickCell.detailTextLabel.textColor = txtColor;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Settings";
+    self.selectedColorID = @6;
     
     
     [self configureTableView];
@@ -108,7 +119,8 @@
     const int kColorPickId = 1;
     
     APPColorPickViewController *vc = [[APPColorPickViewController alloc] init];
-    
+    vc.delegate = self;
+    vc.selectedColorID = [NSNumber numberWithLong:self.selectedColorID.longValue];
     
     if (indexPath.row == kColorPickId) {
         
@@ -117,5 +129,10 @@
     }
 }
 
+- (void)didSelectColor:(APPTableViewCell *)cell indexPath:(NSIndexPath *)indexPath color:(UIColor *)color{
+    self.selectedColorID = [NSNumber numberWithLong:indexPath.row];
+    self.colorPickCell.detailTextLabel.text = cell.textLabel.text;
+    self.colorPickCell.detailTextLabel.textColor = color;
+}
 
 @end

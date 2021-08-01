@@ -14,6 +14,7 @@
 #import "APPColors.h"
 
 @interface APPColorPickViewController ()
+
 @property (nonatomic, nonnull) APPColorPickView *tableView;
 @property (nonnull,nonatomic) NSArray<UIColor*> *colors;
 @property (nonnull,nonatomic) NSArray<NSString*> *colorsStrings;
@@ -29,7 +30,7 @@
         [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
         [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
         [self.tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-        [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+        [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
         
     ]];
 }
@@ -47,6 +48,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.selectedColorID == nil) {
+        self.selectedColorID = @6;
+    }
+    
     self.colors = APPColors.getColors;
     self.colorsStrings = APPColors.getColorsString;
     
@@ -55,9 +60,13 @@
     [self.view addSubview:self.tableView];
     [self makeConstraints];
     
+    
+    
     self.navigationController.navigationBar.tintColor = UIColor.redColor;
     
 }
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.colorsStrings.count;
@@ -69,7 +78,22 @@
     cell.textLabel.text = self.colorsStrings[indexPath.row];
     cell.textLabel.textColor = self.colors[indexPath.row];
     
+    
+    if (indexPath.row == self.selectedColorID.intValue) {
+        
+        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
+    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    APPTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    self.selectedColorID = [NSNumber numberWithLong:indexPath.row];
+    UIColor *color = (APPColors.getColors)[self.selectedColorID.intValue];
+    
+    [self.delegate didSelectColor:cell indexPath:indexPath color:color];
 }
 
 @end

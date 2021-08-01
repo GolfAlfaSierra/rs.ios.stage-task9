@@ -42,5 +42,15 @@
 }
 
 
+- (UIColor *)getCellTextColor{
+    UIColor *col = self.textLabel.tintColor;
+    
+    return col;
+}
 
+- (NSString *)getCellColorString{
+    NSString *str = self.textLabel.text;
+    
+    return str;
+}
 @end

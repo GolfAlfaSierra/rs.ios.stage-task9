@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface APPTableViewCell : UITableViewCell
 
+-(UIColor*)getCellTextColor;
+-(NSString*)getCellColorString;
 @end
 
 NS_ASSUME_NONNULL_END

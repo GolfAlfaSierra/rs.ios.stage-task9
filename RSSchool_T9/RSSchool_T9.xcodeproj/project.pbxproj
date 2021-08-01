@@ -80,6 +80,7 @@
 		6E78CCFD26B42F4500A2AA4A /* APPTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPTableViewCell.m; sourceTree = "<group>"; };
 		6E78CD0426B59F2600A2AA4A /* APPColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPColors.h; sourceTree = "<group>"; };
 		6E78CD0526B59F2600A2AA4A /* APPColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPColors.m; sourceTree = "<group>"; };
+		6E78CD0826B5B40900A2AA4A /* APPColorPickViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPColorPickViewDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,12 +257,10 @@
 			children = (
 				6E78CCE926B42D1400A2AA4A /* APPColorPickViewController.h */,
 				6E78CCEA26B42D1400A2AA4A /* APPColorPickViewController.m */,
-				6E78CCD226B429D100A2AA4A /* APPColorPickView.h */,
-				6E78CCD326B429D100A2AA4A /* APPColorPickView.m */,
-				6E78CCFC26B42F4500A2AA4A /* APPTableViewCell.h */,
-				6E78CCFD26B42F4500A2AA4A /* APPTableViewCell.m */,
+				6E78CD0B26B6AC0800A2AA4A /* Views */,
 				6E78CD0426B59F2600A2AA4A /* APPColors.h */,
 				6E78CD0526B59F2600A2AA4A /* APPColors.m */,
+				6E78CD0826B5B40900A2AA4A /* APPColorPickViewDelegate.h */,
 			);
 			path = ColorPick;
 			sourceTree = "<group>";
@@ -274,6 +273,17 @@
 				6E78CCED26B42D2E00A2AA4A /* Navigation */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6E78CD0B26B6AC0800A2AA4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E78CCD226B429D100A2AA4A /* APPColorPickView.h */,
+				6E78CCD326B429D100A2AA4A /* APPColorPickView.m */,
+				6E78CCFC26B42F4500A2AA4A /* APPTableViewCell.h */,
+				6E78CCFD26B42F4500A2AA4A /* APPTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
