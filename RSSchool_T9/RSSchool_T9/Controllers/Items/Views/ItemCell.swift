@@ -10,8 +10,10 @@
 import UIKit
 
 class ItemCell: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupSelf()
     }
     
@@ -64,10 +66,11 @@ class ItemCell: UIView {
     
     let titleTextView: UILabel = {
         let tv = UILabel()
-        tv.textColor = .black
+        tv.textColor = .white
         tv.font = UIFont(name: "Rockwell-Regular", size: 16)
         tv.backgroundColor = .clear
         tv.text = "Man’s best friend"
+        
         
         return tv
     }()
@@ -116,16 +119,16 @@ class ItemCell: UIView {
             
             
             subTextView.widthAnchor.constraint(equalToConstant: 138),
-            subTextView.heightAnchor.constraint(equalToConstant: 13),
+            subTextView.heightAnchor.constraint(equalToConstant: 14),
             subTextView.leadingAnchor.constraint(equalTo: innerView.leadingAnchor, constant: 10),
             subTextView.trailingAnchor.constraint(equalTo: innerView.trailingAnchor, constant: -15),
             
             subTextView.bottomAnchor.constraint(equalTo: innerView.bottomAnchor, constant: -13),
             
             titleTextView.widthAnchor.constraint(equalToConstant: 138),
-//            titleTextView.heightAnchor.constraint(equalToConstant: 19),
+            titleTextView.heightAnchor.constraint(equalToConstant: 19),
             titleTextView.centerXAnchor.constraint(equalTo: subTextView.centerXAnchor),
-            titleTextView.bottomAnchor.constraint(equalTo: subTextView.topAnchor, constant: -3)
+            titleTextView.bottomAnchor.constraint(equalTo: subTextView.topAnchor, constant: 3)
         ])
     }
 }
