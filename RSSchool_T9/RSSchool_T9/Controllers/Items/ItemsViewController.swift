@@ -10,27 +10,31 @@
 import UIKit
 
 class ItemsViewController: UIViewController {
+    
+    let tableview = ItemsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        setupSelf()
         // Do any additional setup after loading the view.
     }
     
     
     func setupSelf() {
-        view.backgroundColor = .white
+        let v = ItemCell()
+        view.addSubview(v)
+        
+        v.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+        v.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        v.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

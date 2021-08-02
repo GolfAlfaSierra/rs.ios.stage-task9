@@ -36,6 +36,8 @@
 		6E78CCFA26B42F2900A2AA4A /* APPTableCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CCF926B42F2900A2AA4A /* APPTableCellTwo.m */; };
 		6E78CCFE26B42F4500A2AA4A /* APPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CCFD26B42F4500A2AA4A /* APPTableViewCell.m */; };
 		6E78CD0626B59F2700A2AA4A /* APPColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CD0526B59F2600A2AA4A /* APPColors.m */; };
+		6E78CD1026B6DFD900A2AA4A /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CD0F26B6DFD900A2AA4A /* ItemsView.swift */; };
+		6E78CD1426B6E24D00A2AA4A /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CD1326B6E24D00A2AA4A /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		6E78CD0426B59F2600A2AA4A /* APPColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPColors.h; sourceTree = "<group>"; };
 		6E78CD0526B59F2600A2AA4A /* APPColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPColors.m; sourceTree = "<group>"; };
 		6E78CD0826B5B40900A2AA4A /* APPColorPickViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPColorPickViewDelegate.h; sourceTree = "<group>"; };
+		6E78CD0F26B6DFD900A2AA4A /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
+		6E78CD1326B6E24D00A2AA4A /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 		6E785B3426B2AFE100FBDF98 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				6E78CD0E26B6DFB100A2AA4A /* Views */,
 				6E10211F26B172AE00CEE692 /* ItemsViewController.swift */,
 			);
 			path = Items;
@@ -282,6 +287,15 @@
 				6E78CCD326B429D100A2AA4A /* APPColorPickView.m */,
 				6E78CCFC26B42F4500A2AA4A /* APPTableViewCell.h */,
 				6E78CCFD26B42F4500A2AA4A /* APPTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E78CD0E26B6DFB100A2AA4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E78CD0F26B6DFD900A2AA4A /* ItemsView.swift */,
+				6E78CD1326B6E24D00A2AA4A /* ItemCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,9 +387,11 @@
 				6E785B3926B2CBCC00FBDF98 /* Colors.swift in Sources */,
 				6E78CCE726B42CF600A2AA4A /* APPSettingsTableViewController.m in Sources */,
 				2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */,
+				6E78CD1026B6DFD900A2AA4A /* ItemsView.swift in Sources */,
 				6E78CCF626B42F1800A2AA4A /* APPTableCellOne.m in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
+				6E78CD1426B6E24D00A2AA4A /* ItemCell.swift in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				6E78CCFE26B42F4500A2AA4A /* APPTableViewCell.m in Sources */,
 				6E10212026B172AE00CEE692 /* ItemsViewController.swift in Sources */,

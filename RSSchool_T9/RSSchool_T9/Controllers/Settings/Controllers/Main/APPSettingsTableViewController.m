@@ -133,7 +133,7 @@
 -(void)switchChanged:(UISwitch*)sender {
     BOOL state = [sender isOn];
     NSString *rez = state == YES ? @"YES" : @"NO";
-    NSLog(rez);
+    NSLog(@"%@", rez);
 
 }
 
