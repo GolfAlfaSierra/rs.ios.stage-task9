@@ -43,14 +43,14 @@ class ItemCell: UIView {
         let gradient = CAGradientLayer()
         gradient.colors = [
             UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0.74).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor,
         ]
         gradient.locations = [0.74, 1]
         return gradient
     }()
     
-    let subTextView: UITextView = {
-        let tv = UITextView()
+    let subTextView: UILabel = {
+        let tv = UILabel()
         let subtitleColor = UIColor(red: 0.712, green: 0.712, blue: 0.712, alpha: 1)
         
         tv.textColor = subtitleColor
@@ -62,10 +62,10 @@ class ItemCell: UIView {
     }()
     
     
-    let titleTextView: UITextView = {
-        let tv = UITextView()
+    let titleTextView: UILabel = {
+        let tv = UILabel()
         tv.textColor = .black
-        tv.font = UIFont(name: "Rockwell-Regular", size: 12)
+        tv.font = UIFont(name: "Rockwell-Regular", size: 16)
         tv.backgroundColor = .clear
         tv.text = "Man’s best friend"
         
@@ -78,9 +78,11 @@ class ItemCell: UIView {
     
     func setupSelf() {
         
-        innerView.addSubview(subTextView)
-        innerView.addSubview(titleTextView)
+        
         innerView.layer.insertSublayer(gradientLayer, at: 1)
+        
+        innerView.insertSubview(subTextView, at: 10)
+        innerView.insertSubview(titleTextView, at: 10)
         
         outerView.addSubview(innerView)
         
@@ -113,17 +115,17 @@ class ItemCell: UIView {
             innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             
-//            subTextView.widthAnchor.constraint(equalToConstant: 138),
-            subTextView.heightAnchor.constraint(equalToConstant: 14),
+            subTextView.widthAnchor.constraint(equalToConstant: 138),
+            subTextView.heightAnchor.constraint(equalToConstant: 13),
             subTextView.leadingAnchor.constraint(equalTo: innerView.leadingAnchor, constant: 10),
             subTextView.trailingAnchor.constraint(equalTo: innerView.trailingAnchor, constant: -15),
             
             subTextView.bottomAnchor.constraint(equalTo: innerView.bottomAnchor, constant: -13),
             
-            titleTextView.widthAnchor.constraint(equalTo: subTextView.widthAnchor),
-            titleTextView.heightAnchor.constraint(equalToConstant: 19),
+            titleTextView.widthAnchor.constraint(equalToConstant: 138),
+//            titleTextView.heightAnchor.constraint(equalToConstant: 19),
             titleTextView.centerXAnchor.constraint(equalTo: subTextView.centerXAnchor),
-            titleTextView.bottomAnchor.constraint(equalTo: subTextView.topAnchor, constant: 3)
+            titleTextView.bottomAnchor.constraint(equalTo: subTextView.topAnchor, constant: -3)
         ])
     }
 }
