@@ -43,8 +43,9 @@
         
         [self.cellSwitch setTranslatesAutoresizingMaskIntoConstraints:NO];
         [NSLayoutConstraint activateConstraints:@[
-            [self.cellSwitch.leadingAnchor constraintEqualToAnchor:self.cellLabel.trailingAnchor constant:33],
-            [self.cellSwitch.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]
+//            [self.cellSwitch.leadingAnchor constraintEqualToAnchor:self.cellLabel.trailingAnchor constant:33],
+            [self.cellSwitch.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
+            [self.cellSwitch.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-15]
         ]];
         
     }
