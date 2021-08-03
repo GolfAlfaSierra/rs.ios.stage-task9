@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ItemCell: UIView {
+class ItemCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,12 +31,13 @@ class ItemCell: UIView {
         return view
     }()
     
-    let innerView: UIView = {
-        let view = UIView()
+    let innerView: UIImageView = {
+        let view = UIImageView()
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 10
         view.layer.borderColor = UIColor.black.cgColor
-        view.backgroundColor = .white
+        view.contentMode = .scaleAspectFill
+        
         view.clipsToBounds = true
         return view
     }()
@@ -44,10 +45,12 @@ class ItemCell: UIView {
     let gradientLayer: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.colors = [
-            UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.black.withAlphaComponent(1).cgColor,
         ]
         gradient.locations = [0.74, 1]
+        
+
         return gradient
     }()
     
@@ -79,10 +82,10 @@ class ItemCell: UIView {
         gradientLayer.frame.size = self.frame.size
     }
     
-    func setupSelf() {
+    private func setupSelf() {
         
         
-        innerView.layer.insertSublayer(gradientLayer, at: 1)
+        //        innerView.layer.insertSublayer(gradientLayer, at: 5)
         
         innerView.insertSubview(subTextView, at: 10)
         innerView.insertSubview(titleTextView, at: 10)
@@ -94,7 +97,22 @@ class ItemCell: UIView {
         makeConstraint()
     }
     
-    func makeConstraint() {
+    func configureCell(data: ContentType) {
+        switch data {
+        case let .gallery(g):
+            titleTextView.text = g.title
+            subTextView.text = g.type
+            innerView.image = g.coverImage
+        case let .story(s):
+            titleTextView.text = s.title
+            subTextView.text = s.type
+            innerView.image = s.coverImage
+        }
+        
+        innerView.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    private func makeConstraint() {
         
         translatesAutoresizingMaskIntoConstraints = false
         outerView.translatesAutoresizingMaskIntoConstraints = false

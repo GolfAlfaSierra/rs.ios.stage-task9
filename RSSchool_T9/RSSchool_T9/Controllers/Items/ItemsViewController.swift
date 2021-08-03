@@ -11,24 +11,44 @@ import UIKit
 
 class ItemsViewController: UIViewController {
     
-    let tableview = ItemsView()
-
+    var collectionView: UICollectionView?
+    var layout: UICollectionViewFlowLayout?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        layout = UICollectionViewFlowLayout()
+        layout?.itemSize = CGSize(width: 179, height: 240)
+        
+        collectionView = ItemsView(frame: .zero, collectionViewLayout: layout!)
+        collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView?.backgroundColor = .red
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        
+        
+        
+        
         setupSelf()
-        // Do any additional setup after loading the view.
     }
     
     
     func setupSelf() {
-        let v = ItemCell()
+        let v = collectionView!
         view.addSubview(v)
         
-        v.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-        v.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        v.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        if collectionView != nil {
+            collectionView?.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                collectionView!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                collectionView!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                collectionView!.topAnchor.constraint(equalTo: self.view.topAnchor),
+                collectionView!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            ])
+            
+        }
         
     }
     
@@ -36,5 +56,28 @@ class ItemsViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
     }
+    
+    
+    
+}
 
+extension ItemsViewController: UICollectionViewDelegateFlowLayout {
+    
+}
+
+extension ItemsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return FillingData.data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! ItemCell
+        
+        let Data = FillingData.data[indexPath.row]
+        
+        cell.configureCell(data: Data)
+        
+        return cell
+    }
+    
 }
