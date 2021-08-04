@@ -73,6 +73,13 @@ class ItemCell: UICollectionViewCell {
         tv.font = UIFont(name: "Rockwell-Regular", size: 16)
         tv.backgroundColor = .clear
         tv.text = "Man’s best friend"
+        tv.numberOfLines = 0
+        
+        
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.1
+        tv.attributedText = NSMutableAttributedString(string: tv.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+
         
         
         return tv
@@ -143,10 +150,10 @@ class ItemCell: UICollectionViewCell {
             
             subTextView.bottomAnchor.constraint(equalTo: innerView.bottomAnchor, constant: -13),
             
-            titleTextView.widthAnchor.constraint(equalToConstant: 138),
-            titleTextView.heightAnchor.constraint(equalToConstant: 19),
-            titleTextView.centerXAnchor.constraint(equalTo: subTextView.centerXAnchor),
-            titleTextView.bottomAnchor.constraint(equalTo: subTextView.topAnchor, constant: 3)
+            titleTextView.leadingAnchor.constraint(equalTo: innerView.leadingAnchor, constant: 10),
+//            titleTextView.heightAnchor.constraint(equalToConstant: 19),
+            titleTextView.trailingAnchor.constraint(equalTo: innerView.trailingAnchor, constant: -15),
+            titleTextView.bottomAnchor.constraint(equalTo: innerView.bottomAnchor, constant: -30)
         ])
     }
 }

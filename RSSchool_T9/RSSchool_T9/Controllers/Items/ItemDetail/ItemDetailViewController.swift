@@ -36,6 +36,14 @@ class ItemDetailViewController: UIViewController {
         let v = ItemDetailView()
         self.view.addSubview(v)
         
+        v.configure(data: item)
+        
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(closeButton))
+        v.addGestureRecognizer(tap)
+        self.itemView = v
+        
         v.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             v.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -46,5 +54,13 @@ class ItemDetailViewController: UIViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
+    
+    @objc func closeButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }

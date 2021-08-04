@@ -24,7 +24,7 @@ class ItemsViewController: UIViewController {
         
         collectionView = ItemsView(frame: .zero, collectionViewLayout: layout!)
         collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "MyCell")
-        collectionView?.backgroundColor = .red
+        collectionView?.backgroundColor = .white
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
@@ -42,8 +42,8 @@ class ItemsViewController: UIViewController {
         if collectionView != nil {
             collectionView?.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                collectionView!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                collectionView!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                collectionView!.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                collectionView!.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
                 collectionView!.topAnchor.constraint(equalTo: self.view.topAnchor),
                 collectionView!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
@@ -85,6 +85,9 @@ extension ItemsViewController: UICollectionViewDataSource {
         
         let data = FillingData.data[indexPath.row]
         let vc = ItemDetailViewController(item: data)
+        vc.modalPresentationStyle = .fullScreen
+        
+        
         present(vc, animated: true, completion: nil)
         
         
