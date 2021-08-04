@@ -27,6 +27,8 @@
 		6E10210926B15F8500CEE692 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10210826B15F8500CEE692 /* MainViewController.swift */; };
 		6E10212026B172AE00CEE692 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10211F26B172AE00CEE692 /* ItemsViewController.swift */; };
 		6E55BB6626B95C7E00D3196B /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55BB6526B95C7E00D3196B /* ItemsView.swift */; };
+		6E55BB6926B9725A00D3196B /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55BB6826B9725A00D3196B /* ItemDetailViewController.swift */; };
+		6E55BB6E26B9822000D3196B /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55BB6D26B9822000D3196B /* ItemDetailView.swift */; };
 		6E785B3926B2CBCC00FBDF98 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E785B3826B2CBCC00FBDF98 /* Colors.swift */; };
 		6E78CCCF26B4295900A2AA4A /* APPSettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CCCE26B4295900A2AA4A /* APPSettingsView.m */; };
 		6E78CCD426B429D100A2AA4A /* APPColorPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78CCD326B429D100A2AA4A /* APPColorPickView.m */; };
@@ -64,6 +66,8 @@
 		6E10210C26B1704800CEE692 /* RSSchool_T9-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSchool_T9-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E10211F26B172AE00CEE692 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		6E55BB6526B95C7E00D3196B /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
+		6E55BB6826B9725A00D3196B /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		6E55BB6D26B9822000D3196B /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		6E785B3826B2CBCC00FBDF98 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6E78CCCD26B4295900A2AA4A /* APPSettingsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPSettingsView.h; sourceTree = "<group>"; };
 		6E78CCCE26B4295900A2AA4A /* APPSettingsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APPSettingsView.m; sourceTree = "<group>"; };
@@ -198,6 +202,37 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		6E55BB6B26B9727A00D3196B /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				6E78CD0E26B6DFB100A2AA4A /* Views */,
+				6E10211F26B172AE00CEE692 /* ItemsViewController.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		6E55BB6C26B972C900D3196B /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6E55BB6826B9725A00D3196B /* ItemDetailViewController.swift */,
+				6E55BB6D26B9822000D3196B /* ItemDetailView.swift */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
+		6E55BB7426BA6BEE00D3196B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E78CCCD26B4295900A2AA4A /* APPSettingsView.h */,
+				6E78CCCE26B4295900A2AA4A /* APPSettingsView.m */,
+				6E78CCF426B42F1800A2AA4A /* APPTableCellOne.h */,
+				6E78CCF526B42F1800A2AA4A /* APPTableCellOne.m */,
+				6E78CCF826B42F2900A2AA4A /* APPTableCellTwo.h */,
+				6E78CCF926B42F2900A2AA4A /* APPTableCellTwo.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6E785B3226B2AFCC00FBDF98 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +254,8 @@
 		6E785B3426B2AFE100FBDF98 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				6E78CD0E26B6DFB100A2AA4A /* Views */,
-				6E10211F26B172AE00CEE692 /* ItemsViewController.swift */,
+				6E55BB6B26B9727A00D3196B /* Items */,
+				6E55BB6C26B972C900D3196B /* ItemDetail */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -247,12 +282,7 @@
 			children = (
 				6E78CCE526B42CF600A2AA4A /* APPSettingsTableViewController.h */,
 				6E78CCE626B42CF600A2AA4A /* APPSettingsTableViewController.m */,
-				6E78CCCD26B4295900A2AA4A /* APPSettingsView.h */,
-				6E78CCCE26B4295900A2AA4A /* APPSettingsView.m */,
-				6E78CCF426B42F1800A2AA4A /* APPTableCellOne.h */,
-				6E78CCF526B42F1800A2AA4A /* APPTableCellOne.m */,
-				6E78CCF826B42F2900A2AA4A /* APPTableCellTwo.h */,
-				6E78CCF926B42F2900A2AA4A /* APPTableCellTwo.m */,
+				6E55BB7426BA6BEE00D3196B /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -388,8 +418,10 @@
 				6E78CCE726B42CF600A2AA4A /* APPSettingsTableViewController.m in Sources */,
 				2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */,
 				6E78CCF626B42F1800A2AA4A /* APPTableCellOne.m in Sources */,
+				6E55BB6926B9725A00D3196B /* ItemDetailViewController.swift in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
+				6E55BB6E26B9822000D3196B /* ItemDetailView.swift in Sources */,
 				6E78CD1426B6E24D00A2AA4A /* ItemCell.swift in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				6E78CCFE26B42F4500A2AA4A /* APPTableViewCell.m in Sources */,

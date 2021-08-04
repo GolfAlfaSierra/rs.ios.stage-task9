@@ -11,7 +11,7 @@ import UIKit
 
 class ItemsViewController: UIViewController {
     
-    var collectionView: UICollectionView?
+    var collectionView: ItemsView?
     var layout: UICollectionViewFlowLayout?
     
     override func viewDidLoad() {
@@ -78,6 +78,16 @@ extension ItemsViewController: UICollectionViewDataSource {
         cell.configureCell(data: Data)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //        let cell = collectionView.cellForItem(at: indexPath) as! ItemCell
+        
+        let data = FillingData.data[indexPath.row]
+        let vc = ItemDetailViewController(item: data)
+        present(vc, animated: true, completion: nil)
+        
+        
     }
     
 }
